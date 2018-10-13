@@ -151,17 +151,12 @@ export JETSON_BOARD
 export JETSON_CUDA
 export JETSON_JETPACK
 export JETSON_L4T
-export test
+
 
 echo "Found NVIDIA Jetson $JETSON_BOARD"
 echo "Found NVIDIA Jetson $JETSON_CUDA"
 echo "Found NVIDIA Jetson $JETSON_JETPACK"
 echo "Found NVIDIA Jetson $JETSON_L4T"
 
-# TODO Add enviroments variables:
-# - UID -> https://devtalk.nvidia.com/default/topic/996988/jetson-tk1/chip-uid/post/5100481/#5100481
-# - GCID, BOARD, EABI
-# - cuDNN
-# - TensorRT
-# - Visionworks
+
 
