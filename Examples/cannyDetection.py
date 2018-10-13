@@ -58,6 +58,8 @@ def read_cam(video_capture):
         edgeThreshold=40
         showFullScreen = False
         while True:
+
+
             if cv2.getWindowProperty(windowName, 0) < 0: # Check to see if the user closed the window
                 # This will fail if the user closed the window; Nasties get printed to the console
                 break;
@@ -88,11 +90,16 @@ def read_cam(video_capture):
             if showHelp == True:
                 cv2.putText(displayBuf, helpText, (11,20), font, 1.0, (32,32,32), 4, cv2.LINE_AA)
                 cv2.putText(displayBuf, helpText, (10,20), font, 1.0, (240,240,240), 1, cv2.LINE_AA)
+
+            DebugText = "Edge Threshold: " + str(edgeThreshold)
+            cv2.putText(displayBuf, DebugText, (10, 50), font, 1.0, (32, 32, 32), 4, cv2.LINE_AA)
+            cv2.putText(displayBuf, DebugText, (11, 50), font, 1.0, (240, 240, 240), 1, cv2.LINE_AA)
+
             cv2.imshow(windowName,displayBuf)
             key=cv2.waitKey(10)
             if key == 27: # Check for ESC key
                 cv2.destroyAllWindows()
-                break ;
+                break
             elif key==49: # 1 key, show frame
                 cv2.setWindowTitle(windowName,"Camera Feed")
                 showWindow=1
@@ -104,19 +111,21 @@ def read_cam(video_capture):
                 showWindow=3
             elif key==52: # 4 key, toggle help
                 showHelp = not showHelp
-            elif key==44: # , lower canny edge threshold
+            elif key==53: # 5 , lower canny edge threshold
                 edgeThreshold=max(0,edgeThreshold-1)
                 print ('Canny Edge Threshold Maximum: ',edgeThreshold)
-            elif key==46: # , raise canny edge threshold
+            elif key==54: # 6 , raise canny edge threshold
                 edgeThreshold=edgeThreshold+1
                 print ('Canny Edge Threshold Maximum: ', edgeThreshold)
-            elif key==74: # Toggle fullscreen; This is the F3 key on this particular keyboard
+            elif key==55: # 7, Toggle fullscreen; This is the F3 key on this particular keyboard
                 # Toggle full screen mode
                 if showFullScreen == False : 
                     cv2.setWindowProperty(windowName, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
                 else:
                     cv2.setWindowProperty(windowName, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_NORMAL) 
                 showFullScreen = not showFullScreen
+
+
               
     else:
      print ("camera open failed")
@@ -129,10 +138,10 @@ if __name__ == '__main__':
     print(arguments)
     print("OpenCV version: {}".format(cv2.__version__))
     print("Device Number:",arguments.video_device)
-    if arguments.video_device==0:
-      video_capture=open_onboard_camera()
-    else:
-      video_capture=open_camera_device(arguments.video_device)
+#    if arguments.video_device==0:
+#      video_capture=open_onboard_camera()
+#    else:
+    video_capture=open_camera_device(arguments.video_device)
     read_cam(video_capture)
     video_capture.release()
     cv2.destroyAllWindows()
