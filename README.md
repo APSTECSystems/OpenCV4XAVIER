@@ -31,9 +31,9 @@ Run the example:
 
 
 ## Notes
-This setup will create a virtual python environment called 'opencv4' in your execution dir.
-OpenCV4 will be pulled from git, build into OpenCVXAVIER/opencv/build and installed into /usr/local/share/opencv4/
-The OpenCV install directory will be linked to this particular virtual environment 
+This setup will create a virtual python environment called 'opencv4' in your execution dir.  
+OpenCV4 will be pulled from git, build into OpenCVXAVIER/opencv/build and installed into /usr/local/share/opencv4/  
+The OpenCV install directory will be linked to this particular virtual environment.  
 
 
 ## References
