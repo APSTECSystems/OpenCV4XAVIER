@@ -87,6 +87,7 @@ sudo apt-get install -y \
     libv4l-dev \
     libxvidcore-dev \
     libx264-dev \
+    libcanberra-gtk-module \
     qt5-default \
     zlib1g-dev \
     pkg-config

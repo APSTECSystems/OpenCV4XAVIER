@@ -54,7 +54,8 @@ def read_cam(video_capture):
         showWindow=3  # Show all stages
         showHelp = True
         font = cv2.FONT_HERSHEY_PLAIN
-        helpText="'Esc' to Quit, '1' for Camera Feed, '2' for Canny Detection, '3' for All Stages. '4' to hide help"
+        helpText="'Esc' to Quit, '1' for Camera Feed, '2' for Canny Detection, '3' for All Stages. '4' to hide help "
+        helpText2 = "'5' to lower edge threshold, '6' to raise edge threshold, '7' to toggle fullscreen"
         edgeThreshold=40
         showFullScreen = False
         while True:
@@ -87,13 +88,16 @@ def read_cam(video_capture):
             elif showWindow == 3: # Show All Stages
                 displayBuf = vidBuf
 
+            DebugText = "Edge Threshold: " + str(edgeThreshold)
             if showHelp == True:
                 cv2.putText(displayBuf, helpText, (11,20), font, 1.0, (32,32,32), 4, cv2.LINE_AA)
                 cv2.putText(displayBuf, helpText, (10,20), font, 1.0, (240,240,240), 1, cv2.LINE_AA)
 
-            DebugText = "Edge Threshold: " + str(edgeThreshold)
-            cv2.putText(displayBuf, DebugText, (10, 50), font, 1.0, (32, 32, 32), 4, cv2.LINE_AA)
-            cv2.putText(displayBuf, DebugText, (11, 50), font, 1.0, (240, 240, 240), 1, cv2.LINE_AA)
+                cv2.putText(displayBuf, helpText2, (11,50), font, 1.0, (32,32,32), 4, cv2.LINE_AA)
+                cv2.putText(displayBuf, helpText2, (10,50), font, 1.0, (240,240,240), 1, cv2.LINE_AA)
+
+                cv2.putText(displayBuf, DebugText, (10, 80), font, 1.0, (32, 32, 32), 4, cv2.LINE_AA)
+                cv2.putText(displayBuf, DebugText, (11, 80), font, 1.0, (240, 240, 240), 1, cv2.LINE_AA)
 
             cv2.imshow(windowName,displayBuf)
             key=cv2.waitKey(10)
