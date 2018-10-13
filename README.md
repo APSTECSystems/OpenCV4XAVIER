@@ -1,7 +1,7 @@
-# buildOpenCVTX2
-Build and install OpenCV for the NVIDIA Jetson TX2
+# buildOpenCVXAVIER
+Build and install OpenCV for the NVIDIA Jetson XAVIER
 
-These scripts build OpenCV version 3.4 for the NVIDIA Jetson TX2 Development Kit. Please see Releases/Tags for earlier versions.
+These scripts build OpenCV version 3.4 for the NVIDIA Jetson XAVIER Development Kit. Please see Releases/Tags for earlier versions.
 
 OpenCV is a rich environment which can be configured in many different ways. You should configure OpenCV for your needs, by modifying the build file "buildOpenCV.sh". Note that selecting different options in OpenCV may also have additional library requirements which are not included in these scripts. Please read the notes below for other important points before installing.
 
