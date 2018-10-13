@@ -61,7 +61,7 @@ def read_cam(video_capture):
                 # This will fail if the user closed the window; Nasties get printed to the console
                 break
 
-            ret_val, frame = video_capture.read();
+            ret_val, frame = video_capture.read()
 
             frame = cv2.resize(frame, (640, 360))
             hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
