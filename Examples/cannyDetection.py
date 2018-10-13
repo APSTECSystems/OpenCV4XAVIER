@@ -34,11 +34,6 @@ def parse_cli_args():
     arguments = parser.parse_args()
     return arguments
 
-# On versions of L4T previous to L4T 28.1, flip-method=2
-# Use the Jetson onboard camera
-def open_onboard_camera():
-    return cv2.VideoCapture("nvcamerasrc ! video/x-raw(memory:NVMM), width=(int)640, height=(int)480, format=(string)I420, framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
-
 # Open an external usb camera /dev/videoX
 def open_camera_device(device_number):
     return cv2.VideoCapture(device_number)
@@ -88,7 +83,7 @@ def read_cam(video_capture):
             elif showWindow == 3: # Show All Stages
                 displayBuf = vidBuf
 
-            DebugText = "Edge Threshold: " + str(edgeThreshold)
+            DebugText = "OpenCV Version: " + str(cv2.__version__) + " Edge Threshold: " + str(edgeThreshold)
             if showHelp == True:
                 cv2.putText(displayBuf, helpText, (11,20), font, 1.0, (32,32,32), 4, cv2.LINE_AA)
                 cv2.putText(displayBuf, helpText, (10,20), font, 1.0, (240,240,240), 1, cv2.LINE_AA)
