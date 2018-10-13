@@ -11,9 +11,9 @@ This may take a while ...
 
 Afterwards thest your install
 
-> python
-> import cv2
-> cv2.__version__
+> python  
+> import cv2  
+> cv2.__version__  
 
 You should see '4.0.0-pre'
 
