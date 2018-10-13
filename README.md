@@ -3,7 +3,7 @@ Build and install OpenCV4 for the NVIDIA Jetson XAVIER
 
 These scripts build OpenCV version 4 pre for the NVIDIA Jetson XAVIER Development Kit. Please see Releases/Tags for earlier versions.
 
-# Install 
+## Install 
 To install run the following commands:
 
 > ./buildOpenCV4.sh
@@ -22,7 +22,7 @@ Check OpenCV version
 
 You should see '4.0.0-pre'
 
-# Run
+## Run
 Activate your opencv-python environment out of the same folder:
 > source opencv4/bin/activate  
 
