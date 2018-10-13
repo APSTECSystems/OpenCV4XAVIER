@@ -18,7 +18,7 @@ Activate your opencv-python environment out of the same folder:
 Check OpenCV version
 > python  
 > import cv2  
-> cv2.__version__  
+> cv2.\_\_version\_\_  
 
 You should see '4.0.0-pre'
 
