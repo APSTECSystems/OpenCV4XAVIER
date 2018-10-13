@@ -40,6 +40,8 @@ if [ -f /sys/module/tegra_fuse/parameters/tegra_chip_id ]; then
             JETSON_BOARD="TX1" ;;
         24)
             JETSON_BOARD="TX2" ;;
+        25)
+            JETSON_BOARD="XAVIER" ;;
         *)
             JETSON_BOARD="UNKNOWN" ;;
     esac
