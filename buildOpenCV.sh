@@ -77,7 +77,7 @@ sudo apt-get install -y \
     libglew-dev \
     libgtk2.0-dev \
     libgtk-3-dev \
-    libjasper-dev \
+#    libjasper-dev \
     libjpeg-dev \
     libpng12-dev \
     libpostproc-dev \
@@ -201,3 +201,5 @@ if [[ $IMPORT_CHECK != *$OPENCV_VERSION* ]]; then
   echo "Please check the installation."
   echo "The first check should be the PYTHONPATH environment variable."
 fi
+
+source removeOpenCVSources.sh
