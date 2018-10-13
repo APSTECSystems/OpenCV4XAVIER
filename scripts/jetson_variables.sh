@@ -45,9 +45,8 @@ if [ -f /sys/module/tegra_fuse/parameters/tegra_chip_id ]; then
         *)
             JETSON_BOARD="UNKNOWN" ;;
     esac
-    JETSON_DESCRIPTION="NVIDIA Jetson $JETSON_BOARD"
 fi
-export JETSON_BOARD
+
 
 # NVIDIA Jetson version
 # reference https://devtalk.nvidia.com/default/topic/860092/jetson-tk1/how-do-i-know-what-version-of-l4t-my-jetson-tk1-is-running-/
@@ -66,10 +65,17 @@ if [ -f /etc/nv_tegra_release ]; then
 
     # Write version of jetpack installed
     # https://developer.nvidia.com/embedded/jetpack-archive
-    if [ "$JETSON_BOARD" = "TX2i" ] ; then 
+    if [ "$JETSON_BOARD" = "XAVIER" ] ; then
+        case $JETSON_L4T in
+            "31.0.2")
+               JETSON_JETPACK="4.1. Early Access" ;;
+            *)
+               JETSON_JETPACK="UNKNOWN" ;;
+        esac
+    elif [ "$JETSON_BOARD" = "TX2i" ] ; then
         case $JETSON_L4T in
             "28.2.1")
-                    JETSON_JETPACK="3.2.1" ;;
+               JETSON_JETPACK="3.2.1" ;;
             "28.2") 
                JETSON_JETPACK="3.2" ;;
             *)
@@ -145,6 +151,12 @@ export JETSON_BOARD
 export JETSON_CUDA
 export JETSON_JETPACK
 export JETSON_L4T
+export test
+
+echo "Found NVIDIA Jetson $JETSON_BOARD"
+echo "Found NVIDIA Jetson $JETSON_CUDA"
+echo "Found NVIDIA Jetson $JETSON_JETPACK"
+echo "Found NVIDIA Jetson $JETSON_L4T"
 
 # TODO Add enviroments variables:
 # - UID -> https://devtalk.nvidia.com/default/topic/996988/jetson-tk1/chip-uid/post/5100481/#5100481
