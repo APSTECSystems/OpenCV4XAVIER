@@ -73,12 +73,12 @@ def read_cam(video_capture):
                 # To composite, convert gray images to color. 
                 # All images must be of the same type to display in a window
                 #frameRs = cv2.resize(frame, (640, 360))
-                hsvRs = cv2.resize(hsv, (640, 360))
-                vidBuf = np.concatenate((frame, cv2.cvtColor(hsvRs, cv2.COLOR_GRAY2BGR)), axis=1)
-                blurRs = cv2.resize(blur, (640, 360))
-                edgesRs = cv2.resize(edges, (640, 360))
+                #hsvRs = cv2.resize(hsv, (640, 360))
+                vidBuf = np.concatenate((frame, cv2.cvtColor(hsv, cv2.COLOR_GRAY2BGR)), axis=1)
+                #blurRs = cv2.resize(blur, (640, 360))
+                #edgesRs = cv2.resize(edges, (640, 360))
                 vidBuf1 = np.concatenate(
-                    (cv2.cvtColor(blurRs, cv2.COLOR_GRAY2BGR), cv2.cvtColor(edgesRs, cv2.COLOR_GRAY2BGR)), axis=1)
+                    (cv2.cvtColor(blur, cv2.COLOR_GRAY2BGR), cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)), axis=1)
                 vidBuf = np.concatenate((vidBuf, vidBuf1), axis=0)
 
             if showWindow == 1:  # Show Camera Frame
