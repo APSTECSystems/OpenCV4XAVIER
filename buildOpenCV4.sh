@@ -1,5 +1,9 @@
 #!/bin/bash
+
+#based on https://devtalk.nvidia.com/default/topic/1042035/installing-opencv4-on-xavier/
+
 WHEREAMI=$(pwd)
+source scripts/jetson_variables.sh
 sudo apt-get install -y build-essential \
     cmake \
     unzip \
@@ -37,3 +41,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D BUILD_EXAMPLES=ON ..
 
 make -j6
+sudo make install
+sudo ldconfig
+cd $WHEREAMI'/opencv4/lib/python3.6/site-packages'
+ln -s /usr/local/lib/python3.6/site-packages/cv2.cpython-36m-aarch64-linux-gnu.so cv2.so
