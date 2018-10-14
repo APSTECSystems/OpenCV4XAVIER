@@ -43,6 +43,7 @@ def open_camera_device(device_number):
 
 def read_cam(video_capture):
     if video_capture.isOpened():
+        video_capture.set(cv2.CAP_PROP_FPS,30)
         windowName = "CannyDemo"
         cv2.namedWindow(windowName, cv2.WINDOW_NORMAL)
         cv2.resizeWindow(windowName, 1280, 720)
