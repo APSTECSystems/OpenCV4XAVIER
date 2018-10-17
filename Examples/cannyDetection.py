@@ -58,9 +58,7 @@ def read_cam(video_capture):
         showFullScreen = False
         while True:
 
-            if cv2.getWindowProperty(windowName, 0) < 0:  # Check to see if the user closed the window
-                # This will fail if the user closed the window; Nasties get printed to the console
-                break
+
 
             ret_val, frame = video_capture.read()
 
@@ -129,6 +127,10 @@ def read_cam(video_capture):
                 else:
                     cv2.setWindowProperty(windowName, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_NORMAL)
                 showFullScreen = not showFullScreen
+            if cv2.getWindowProperty(windowName, 0) < 0:  # Check to see if the user closed the window
+                # This will fail if the user closed the window; Nasties get printed to the console
+                print("closed")
+                break
 
 
 

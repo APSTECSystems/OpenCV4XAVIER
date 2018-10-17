@@ -7,7 +7,6 @@ ARCH_BIN=7.0
 source scripts/jetson_variables.sh
 sudo apt-get install -y build-essential \
     cmake \
-    qt5-default \
     unzip \
     pkg-config \
     libjpeg-dev \
@@ -58,7 +57,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D WITH_LIBV4L=ON \
     -D WITH_GSTREAMER=ON \
     -D WITH_GSTREAMER_0_10=OFF \
-    -D WITH_QT=ON \
+    -D WITH_TBB=ON \
     ../
 echo "Start build process with 6 cores"
 make -j6
